@@ -1,19 +1,27 @@
 describe("Game", function () {
-  var turn=[],
-  counter,
-  points;
-  it('should contain the following variabes: ', function() {
-    expect(turn.toBeDefined());
-    expect(counter.toBeDefined());
-    expect(points.toBeDefined());
+  var turnNum = turn.length;
+//these are the basic interface variables. The turn array will track the
+  it('should contain a turn array', function () {
+    expect(turn).not.toBe(undefined);
   });
-  it('should have a turn array', function() {
 
+  it('keep track of how many turns have passed', function () {
+    expect(counter).toEqual(turnNum);
   });
-  it('should have a counter equal to the length of the array', function() {
 
+  it('should award 100 points for eack turn completed', function () {
+    expect(points).toEqual(turnNum*100);
   });
-  it('should count points for each round completed', function() {
 
+  it('should fonatin a function (roll) that generates a ramdom number between 1 and four', function () {
+    var a = roll();
+    expect(roll).not.toBe(undefined);
+    expect(a).toBeGreaterThan(0);
+    expect(a).toBeLessThan(5);
+    return a;
+  });
+
+  it('should contain a reset button that clears the current game', function () {
+    expect(reset).not.toBe(undefined);
   });
 });
