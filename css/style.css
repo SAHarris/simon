@@ -1,0 +1,35 @@
+.one {
+  width: 0;
+	height: 0;
+	border-top: 100px solid red;
+	border-right: 100px solid transparent;
+}
+.two{
+  width: 0;
+	height: 0;
+	border-top: 100px solid blue;
+	border-left: 100px solid transparent;
+}
+.three{
+  width: 0;
+	height: 0;
+	border-bottom: 100px solid green;
+	border-right: 100px solid transparent;
+}
+.four{
+  width: 0;
+	height: 0;
+	border-bottom: 100px solid yellow;
+	border-left: 100px solid transparent;
+}
+.row{
+margin-right: auto;
+margin-left: auto;
+padding-bottom: 4px;
+}
+.row-centered {
+    text-align:center;
+}
+.btn{
+  margin-right: 4px;
+}
