@@ -1,3 +1,4 @@
+//global variables and functions
 var turn=[];
 var update = function () {
   counter = turn.length;
@@ -17,3 +18,10 @@ var reset = function () {
   turn = [];
   update();
 };
+
+//begin jQuery logic
+$(document).ready(function() {
+  update();
+  $(".round").text("Round: " + counter);
+  $(".score").text("Score: "+ points);
+});
