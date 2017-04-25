@@ -11,7 +11,7 @@ describe("Game", function () {
 
   it('should award 100 points for eack turn completed', function () {
     expect(points).toEqual(turnNum*100);
-  });
+    });
 
   it('should contain a function (roll) that generates a random number between 1 and four', function () {
     var a = roll();
@@ -19,8 +19,8 @@ describe("Game", function () {
     expect(a).toBeGreaterThan(0);
     expect(a).toBeLessThan(5);
 
-  });
-//reset needs configured
+    });
+
   it('should contain a reset button that clears the current game', function () {
     expect(reset).not.toBe(undefined);
     next();
@@ -37,7 +37,7 @@ describe("Game", function () {
     expect(points).toEqual(100);
     reset();
   });
-
+  
   it('should contain a simple update function', function () {
     expect(update).not.toBe(undefined);
   });
