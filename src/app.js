@@ -3,6 +3,8 @@ var turn=[];
 var update = function () {
   counter = turn.length;
   points = counter * 100;
+  $(".round").text("Round: " + counter);
+  $(".score").text("Score: "+ points);
 };
 var counter;
 var points;
@@ -22,6 +24,14 @@ var reset = function () {
 //begin jQuery logic
 $(document).ready(function() {
   update();
-  $(".round").text("Round: " + counter);
-  $(".score").text("Score: "+ points);
+
+  $('.start').on('click', function(event){
+   event.preventDefault();
+   next();
+   });
+
+  $('.reset').on('click', function(event){
+   event.preventDefault();
+   reset();
+   });
 });
