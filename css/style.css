@@ -22,3 +22,15 @@
 	border-bottom: 100px solid yellow;
 	border-left: 100px solid transparent;
 }
+.red{
+  background-color: red;
+}
+.blue{
+  background-color: blue;
+}
+.green{
+  background-color: green;
+}
+.yellow{
+  background-color: yellow;
+}
