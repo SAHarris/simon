@@ -10,7 +10,7 @@ describe("Game", function () {
   });
 
   it('should award 100 points for eack turn completed', function () {
-    update();
+    disp();
     expect(points).toEqual(turn.length*100);
     });
 //roll test throws error after adding jQuery to update()
