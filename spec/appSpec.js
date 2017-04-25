@@ -1,16 +1,17 @@
 describe("Game", function () {
-  var turnNum = turn.length;
 //these are the basic interface variables. The turn array will track the
   it('should contain a turn array', function () {
     expect(turn).not.toBe(undefined);
   });
 
   it('keep track of how many turns have passed', function () {
-    expect(counter).toEqual(turnNum);
+    update();
+    expect(counter).toEqual(turn.length);
   });
 
   it('should award 100 points for eack turn completed', function () {
-    expect(points).toEqual(turnNum*100);
+    update();
+    expect(points).toEqual(turn.length*100);
     });
 //roll test throws error after adding jQuery to update()
   it('should contain a function (roll) that generates a random number between 1 and four', function () {
