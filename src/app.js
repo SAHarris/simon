@@ -1,37 +1,43 @@
 //global variables and functions
-var turn=[];
+var turn = [];
+var counter;
+var points;
 var update = function () {
   counter = turn.length;
-  points = counter * 100;
+  points = (counter * counter) * 100;
+  };
+var roll = function () {
+    return Math.floor((Math.random() * 4) + 1);
+  };
+var next = function () {
+    turn.push(roll());
+    update();
+  };
+var reset = function () {
+    turn = [];
+  };
+
+$(document).ready(function() {
+//begin jQuery logic
+var disp = function () {
+  update();
   $(".round").text("Round: " + counter);
   $(".score").text("Score: "+ points);
 };
-var counter;
-var points;
-update();
-var roll = function () {
-  return Math.floor((Math.random() * 4) + 1);
-};
-var next = function () {
-  turn.push(roll());
-  update();
-};
-var reset = function () {
-  turn = [];
-  update();
-};
 
-//begin jQuery logic
-$(document).ready(function() {
-  update();
+$('.start').on('click', function(event){
+ event.preventDefault();
+ next();
+ disp();
+ });
 
-  $('.start').on('click', function(event){
-   event.preventDefault();
-   next();
-   });
+$('.reset').on('click', function(event){
+ event.preventDefault();
+ reset();
+ disp();
+ });
 
-  $('.reset').on('click', function(event){
-   event.preventDefault();
-   reset();
-   });
+// begin run code
+disp();
+//end jQuery doc.ready func
 });
