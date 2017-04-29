@@ -17,25 +17,39 @@ var disp = function () {
   $(".round").text("Round: " + a);
   $(".score").text("Score: "+ (a * a) * 100);
 };
+var blink = function (num, colr) {
+    $(num).css("background-color", "white");
+
+    setTimeout(function(){
+        $(num).css("background-color", colr)
+    }, 1000);
+};
 var run = function () {
-  next();
-  disp();
+
   for (var i = 0; i < turn.length; i++) {
     var num;
+    var colr;
     if (turn[i] == 1) {
       num = ".one";
+      colr = "red";
     }
     else if (turn[i] == 2){
       num = ".two";
+      colr = "blue";
     }
     else if (turn[i] == 3) {
       num = ".three";
+      colr = "green";
     }
     else {
       num = ".four";
+      colr = "yellow";
     }
-    $(num).fadeOut(1500);
-    $(num).fadeIn(1500);
+
+    setTimeout(function () {
+        blink(num, colr)}, 500);
+
+
 
   }
 };
