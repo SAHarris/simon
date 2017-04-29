@@ -19,7 +19,7 @@ var disp = function () {
 };
 var blink = function (num, colr) {
     $(num).css("background-color", "white");
-
+//add audio
     setTimeout(function(){
         $(num).css("background-color", colr)
     }, 1000);
