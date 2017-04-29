@@ -20,11 +20,10 @@ var disp = function () {
 };
 var blink = function (num, colr, beep) {
     $(num).css("background-color", "white");
-//add audio
+    $(beep)[0].play();
     setTimeout(function(){
-        $(num).css("background-color", colr)
+        $(num).css("background-color", colr);
     }, 1000);
-        $(beep)[0].play();
 };
 var run = function () {
 
@@ -51,14 +50,11 @@ var run = function () {
       num = ".four";
       colr = "yellow";
       beep = "#four";
-    }
-
-    setTimeout(function () {
-        blink(num, colr, beep)}, 500);
-
-
-
   }
+  setTimeout(function(){
+      blink(num, colr, beep);
+  }, 500);
+    }
 };
 
 $('.start').on('click', function(event){
