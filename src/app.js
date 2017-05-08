@@ -42,12 +42,16 @@ var blink = function (sel) {
       colr = "yellow";
       beep = "#four";
   }
-    $(num).css("background-color", "white");
+
 
     setTimeout(function(){
+        $(num).css("background-color", "white");
         $(beep)[0].play();
-        $(num).css("background-color", colr);
-    }, 250);
+        setTimeout(function() {
+          $(num).css("background-color", colr);
+        }, 250);
+
+    }, 500);
 };
 var run = function () {
     var i = 0;
