@@ -49,7 +49,7 @@ var blink = function (sel) {
         $(beep)[0].play();
         setTimeout(function() {
           $(num).css("background-color", colr);
-        }, 250);
+        }, 1000);
 
     }, 500);
 };
