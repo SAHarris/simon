@@ -44,12 +44,12 @@ var blink = function (sel) {
   }
 
 
-    setTimeout(function(){
+    setInterval(function(){
         $(num).css("background-color", "white");
         $(beep)[0].play();
         setTimeout(function() {
           $(num).css("background-color", colr);
-        }, 1000);
+        }, 500);
 
     }, 500);
 };
