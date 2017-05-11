@@ -44,7 +44,7 @@ var blink = function (sel) {
   }
 
 
-    setInterval(function(){
+    setTimeout(function(){
         $(num).css("background-color", "white");
         $(beep)[0].play();
         setTimeout(function() {
