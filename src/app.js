@@ -1,4 +1,6 @@
 //global variables and functions
+var r;
+var s;
 var turn = [];
 var roll = function () {
     return Math.floor((Math.random() * 4) + 1);
@@ -65,19 +67,28 @@ var run = function () {
         }, 500);
     }
     runLoop();
+    r=0;
+    s=[];
 };
 
-$('.start').on('click', function(event){
+$('.start').click(function(event){
  event.preventDefault();
  next();
  run();
  disp();
  });
 
-$('.reset').on('click', function(event){
+$('.reset').click(function(event){
  event.preventDefault();
  reset();
  disp();
+ });
+
+ $('.square').click(function(event){
+   event.preventDefault();
+   s.push(parseInt(this.id));
+   blink(s[r]);
+   r++;
  });
 
 // begin run code
