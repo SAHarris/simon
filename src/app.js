@@ -1,6 +1,5 @@
 //global variables and functions
 var r;
-var s;
 var turn = [];
 var roll = function () {
     return Math.floor((Math.random() * 4) + 1);
@@ -68,7 +67,6 @@ var run = function () {
     }
     runLoop();
     r=0;
-    s=[];
 };
 
 $('.start').click(function(event){
@@ -86,9 +84,16 @@ $('.reset').click(function(event){
 
  $('.square').click(function(event){
    event.preventDefault();
-   s.push(parseInt(this.id));
-   blink(s[r]);
-   r++;
+   blink(parseInt(this.id));
+   if (turn[r] != (parseInt(this.id))){
+     window.alert('WRONG!');
+   } else if (r == (turn.length - 1)){
+     next();
+     run();
+   }
+   else{
+     r++;
+   }
  });
 
 // begin run code
