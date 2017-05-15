@@ -21,12 +21,17 @@ var run = function () {
      }
      runLoop();
      r=0;
+     if (turn.length == 20){
+       window.alert('OMG, YOU WON!!!!');
+       reset();
+     }
  };
  var disp = function () {
    var a = turn.length;
    $(".round").text("Round: " + a);
    $(".score").text("Score: "+ (a * a) * 100);
  };
+
 var reset = function () {
     turn = [];
     next();
@@ -65,13 +70,13 @@ var blink = function (sel) {
         $(beep)[0].play();
         setTimeout(function() {
           $(num).css("background-color", colr);
-        }, 500);
+        }, 250);
 
-    }, 500);
+    }, 250);
 };
 
 $('#strict').click(function(event) {
-    if (strictFlag == false){
+    if (strictFlag === false){
     strictFlag = true;
 }else{
     strictFlag = false;
@@ -97,7 +102,7 @@ $('.reset').click(function(event){
    if (turn[r] != (parseInt(this.id))){
        setTimeout(function(){
      window.alert('WRONG!');
-     if(strictFlag == true){
+     if(strictFlag === true){
          reset();
          disp();
      }else{
