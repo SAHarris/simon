@@ -1,9 +1,7 @@
-//global variables and functions
-var strictFlag = false;
 $(document).ready(function() {
 var r;
 var turn = [];
-
+var strictFlag = false;
 var roll = function () {
     return Math.floor((Math.random() * 4) + 1);
   };
@@ -35,10 +33,6 @@ var reset = function () {
     run();
     disp();
   };
-
-
-//begin jQuery logic
-
 
 var blink = function (sel) {
     var beep;
