@@ -1,24 +1,45 @@
 //global variables and functions
+var strictFlag = false;
+$(document).ready(function() {
 var r;
 var turn = [];
+
 var roll = function () {
     return Math.floor((Math.random() * 4) + 1);
   };
 var next = function () {
     turn.push(roll());
   };
+var run = function () {
+     var i = 0;
+     function runLoop () {
+         setTimeout(function () {
+             blink(turn[i]);
+             i++;
+             if (i < turn.length){
+                 runLoop();
+             }
+         }, 750);
+     }
+     runLoop();
+     r=0;
+ };
+ var disp = function () {
+   var a = turn.length;
+   $(".round").text("Round: " + a);
+   $(".score").text("Score: "+ (a * a) * 100);
+ };
 var reset = function () {
     turn = [];
+    next();
+    run();
+    disp();
   };
 
-$(document).ready(function() {
+
 //begin jQuery logic
 
-var disp = function () {
-  var a = turn.length;
-  $(".round").text("Round: " + a);
-  $(".score").text("Score: "+ (a * a) * 100);
-};
+
 var blink = function (sel) {
     var beep;
     var num;
@@ -54,21 +75,14 @@ var blink = function (sel) {
 
     }, 500);
 };
-var run = function () {
-    var i = 0;
-    function runLoop () {
-        setTimeout(function () {
-            blink(turn[i]);
-            i++;
-            if (i < turn.length){
-                runLoop();
-            }
-        }, 750);
-    }
-    runLoop();
-    r=0;
-};
 
+$('#strict').click(function(event) {
+    if (strictFlag == false){
+    strictFlag = true;
+}else{
+    strictFlag = false;
+}
+});
 $('.start').click(function(event){
  event.preventDefault();
  $('.start').hide();
@@ -80,11 +94,7 @@ $('.start').click(function(event){
 
 $('.reset').click(function(event){
  event.preventDefault();
- $('.reset').hide();
  reset();
- next();
- run();
- disp();
  });
 
  $('.square').click(function(event){
@@ -93,11 +103,18 @@ $('.reset').click(function(event){
    if (turn[r] != (parseInt(this.id))){
        setTimeout(function(){
      window.alert('WRONG!');
+     if(strictFlag == true){
+         reset();
+         disp();
+     }else{
      run();
+     disp();
+    }
  }, 500);
    } else if (r == (turn.length - 1)){
      next();
      run();
+     disp();
    }
    else{
      r++;
