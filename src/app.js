@@ -38,7 +38,7 @@ var blink = function (sel) {
       colr = "green";
       beep = "#three";
     }
-    else {
+    else if (sel == 4){
       num = ".four";
       colr = "yellow";
       beep = "#four";
@@ -63,7 +63,7 @@ var run = function () {
             if (i < turn.length){
                 runLoop();
             }
-        }, 500);
+        }, 750);
     }
     runLoop();
     r=0;
@@ -71,6 +71,8 @@ var run = function () {
 
 $('.start').click(function(event){
  event.preventDefault();
+ $('.start').hide();
+ $('.reset').show();
  next();
  run();
  disp();
@@ -78,7 +80,10 @@ $('.start').click(function(event){
 
 $('.reset').click(function(event){
  event.preventDefault();
+ $('.reset').hide();
  reset();
+ next();
+ run();
  disp();
  });
 
@@ -86,17 +91,22 @@ $('.reset').click(function(event){
    event.preventDefault();
    blink(parseInt(this.id));
    if (turn[r] != (parseInt(this.id))){
+       setTimeout(function(){
      window.alert('WRONG!');
+     run();
+ }, 500);
    } else if (r == (turn.length - 1)){
      next();
      run();
    }
    else{
      r++;
+     disp();
    }
  });
 
 // begin run code
 disp();
+$('.reset').hide();
 //end jQuery doc.ready func
 });
